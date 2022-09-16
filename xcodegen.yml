@@ -1,0 +1,42 @@
+name: Deck
+options:
+  deploymentTarget:
+    macOS: "12.0"
+schemes:
+  Deck:
+    build:
+      targets:
+        Deck: all
+packages:
+  DeckUI:
+    url: "https://github.com/FullQueueDeveloper/DeckUI.git"
+    from: 1.0.2
+targets:
+  Deck:
+    type: application
+    platform: macOS
+    sources:
+      - path: Deck
+    dependencies:
+      - package: DeckUI
+    settings:
+      DEVELOPMENT_TEAM: ABCD1234
+      CODE_SIGN_STYLE: Automatic
+      ORGANIZATIONNAME: "FullQueueDeveloper"
+      VERSIONING_SYSTEM: apple-generic
+      PRODUCT_BUNDLE_IDENTIFIER: com.fullqueuedeveloper.Deck
+      SWIFT_VERSION: 5.7
+    info:
+      path: Deck/Info.plist
+      properties:
+        CFBundleVersion: 1
+        CFBundleShortVersionString: "1.0"
+        CFBundleDevelopmentRegion: $(DEVELOPMENT_LANGUAGE)
+        CFBundleName: $(PRODUCT_NAME)
+        CFBundleDisplayName: Example
+        CFBundleIconFile: ""
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        NSCameraUsageDescription: "Show the camera while presenting"
